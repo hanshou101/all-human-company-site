@@ -33,48 +33,13 @@ async function fetchJson(url, options) {
 }
 
 function revealOnLoad() {
+  // Stagger slightly so it feels alive, not templated.
   const items = qsa(".reveal");
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("on");
-        observer.unobserve(entry.target);
-      }
-    });
-  }, {
-    threshold: 0.15,
-    rootMargin: "0px 0px -50px 0px"
-  });
-
-  items.forEach(el => {
-    observer.observe(el);
+  items.forEach((el, i) => {
+    const delay = Math.min(260, 80 + i * 55);
+    window.setTimeout(() => el.classList.add("on"), delay);
   });
 }
-
-function typeWriter(element, text, speed = 50) {
-  if (!element) return;
-  element.textContent = "";
-  let i = 0;
-  function type() {
-    if (i < text.length) {
-      element.textContent += text.charAt(i);
-      i++;
-      setTimeout(type, speed);
-    }
-  }
-  type();
-}
-
-function initTyping() {
-  const typeEls = qsa("[data-type-effect]");
-  typeEls.forEach(el => {
-    const text = el.getAttribute("data-type-text") || el.textContent;
-    el.textContent = ""; 
-    setTimeout(() => typeWriter(el, text, 30), 500);
-  });
-}
-
-
 
 function formatIso(ts) {
   try {
@@ -166,5 +131,4 @@ document.addEventListener("DOMContentLoaded", () => {
   revealOnLoad();
   initHeartbeat();
   initForms();
-  initTyping();
 });

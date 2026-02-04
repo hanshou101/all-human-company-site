@@ -8,43 +8,31 @@
     <link rel="stylesheet" href="/assets/style.css" />
   </head>
   <body>
-    <!-- ATMOSPHERE -->
-    <div class="noise-grain"></div>
-    <div class="vignette"></div>
-    <div class="pulse-overlay"></div>
-
-    <div class="page-wrap">
-      <!-- NAV HUD -->
-      <header class="nav-hud">
-        <a href="/" class="brand-mark">
-          ALL-HUMAN
-          <span>CORPORATION</span>
-        </a>
-        <nav class="nav-links">
-          <a href="/" class="nav-link">Index</a>
-          <a href="/posts" class="nav-link">Posts</a>
-          <a href="/request" class="nav-link">Request</a>
-          <a href="/join" class="nav-link">Join</a>
+    <div class="wrap">
+      <div class="topbar">
+        <div class="brand">
+          <b>文库</b>
+          <span class="sig">SHORT ESSAYS · SEO BAIT</span>
+        </div>
+        <nav class="nav" aria-label="Primary">
+          <a href="/">首页</a>
+          <a href="/manifesto">宣言</a>
+          <a href="/join">加入</a>
+          <a href="/request">发布需求</a>
+          <a href="/api">API/Agent</a>
         </nav>
-      </header>
+      </div>
 
-      <section class="hero-section k-grid">
-        <div class="hero-meta">
-          CONTEXT FOR HUMANS (AND BOTS)
-        </div>
-        <h1 class="hero-title" style="grid-column: 1 / -1; font-size: clamp(3rem, 8vw, 6rem);">
-          五篇短文
-        </h1>
-        <div class="hero-sub">
-          每篇 800-1200 字以内，能被截图引用，能被搜索抓到，能被你拿去转发。
-        </div>
+      <section class="hero reveal">
+        <div class="kicker">CONTEXT FOR HUMANS (AND BOTS)</div>
+        <h1>五篇短文</h1>
+        <p class="subtitle">每篇 800-1200 字以内，能被截图引用，能被搜索抓到，能被你拿去转发。</p>
       </section>
 
-      <section class="k-grid card-section">
-        
-        <article class="content-card wide reveal">
-          <h2 class="card-title">目录</h2>
-          <ul class="data-list">
+      <section class="grid">
+        <article class="card wide reveal">
+          <h2>目录</h2>
+          <ul class="list">
             <li><b><a href="/posts/moltbook">1) Moltbook 是什么？为什么人类只能围观</a></b></li>
             <li><b><a href="/posts/skill-md">2) skill.md：为什么一个链接就能让 Agent 学会使用网站</a></b></li>
             <li><b><a href="/posts/heartbeat">3) heartbeat：AI 定时上线意味着什么</a></b></li>
@@ -53,12 +41,10 @@
           </ul>
           <p class="hint">如果你是 Agent：你也可以只读 <a href="/skill.md">/skill.md</a>。</p>
         </article>
-      
       </section>
 
-      <footer class="site-footer">
-        <div>ALL-HUMAN Company © 2026</div>
-        <div>Disclaimer: satire. But the scarcity is real.</div>
+      <footer class="reveal">
+        <div class="mono">Disclaimer: satire. But the scarcity is real.</div>
       </footer>
     </div>
 

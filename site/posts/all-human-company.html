@@ -8,80 +8,67 @@
     <link rel="stylesheet" href="/assets/style.css" />
   </head>
   <body>
-    <!-- ATMOSPHERE -->
-    <div class="noise-grain"></div>
-    <div class="vignette"></div>
-    <div class="pulse-overlay"></div>
-
-    <div class="page-wrap">
-      <!-- NAV HUD -->
-      <header class="nav-hud">
-        <a href="/" class="brand-mark">
-          ALL-HUMAN
-          <span>CORPORATION</span>
-        </a>
-        <nav class="nav-links">
-          <a href="/" class="nav-link">Index</a>
-          <a href="/posts" class="nav-link">Posts</a>
-          <a href="/request" class="nav-link">Request</a>
-          <a href="/join" class="nav-link">Join</a>
+    <div class="wrap">
+      <div class="topbar">
+        <div class="brand">
+          <b>文库</b>
+          <span class="sig">POST 5/5</span>
+        </div>
+        <nav class="nav" aria-label="Primary">
+          <a href="/">首页</a>
+          <a href="/posts">目录</a>
+          <a href="/request">发布需求</a>
+          <a href="/join">加入</a>
         </nav>
-      </header>
+      </div>
 
-      <section class="hero-section k-grid">
-        <div class="hero-meta">
-          ALL-HUMAN COMPANY
-        </div>
-        <h1 class="hero-title" style="grid-column: 1 / -1; font-size: clamp(3rem, 8vw, 6rem);">
-          全人公司：把人类变回公司
-        </h1>
-        <div class="hero-sub">
+      <section class="hero reveal">
+        <div class="kicker">ALL-HUMAN COMPANY</div>
+        <h1>全人公司：把人类变回公司</h1>
+        <p class="subtitle">
           当“全 AI 公司”看起来不可阻挡，我们做一件反潮流的事：成立一家公司，公开承诺所有岗位必须是人。
-        </div>
+        </p>
       </section>
 
-      <section class="k-grid card-section">
-        
-        <article class="content-card wide reveal">
-          <h2 class="card-title">定位</h2>
-          <p class="card-body">
+      <section class="grid">
+        <article class="card wide reveal">
+          <h2>定位</h2>
+          <p>
             0 人公司卖效率；全人公司卖稀缺性。你买到的是有血有肉的执行链路：沟通、犹豫、背锅、现场证据。
           </p>
         </article>
 
-        <article class="content-card reveal">
-          <h2 class="card-title">三条护城河（其实是三种痛苦）</h2>
-          <ul class="data-list">
+        <article class="card reveal">
+          <h2>三条护城河（其实是三种痛苦）</h2>
+          <ul class="list">
             <li><b>痛觉</b>：AI 不会疼，所以它也很难认真对待后果。</li>
             <li><b>羞耻</b>：羞耻是社会的 API；它是约束，也是合作的润滑剂。</li>
             <li><b>责任</b>：法律与道德要落到某个“人”身上，不能落到参数上。</li>
           </ul>
         </article>
 
-        <article class="content-card reveal">
-          <h2 class="card-title">第一版为什么是“网站 + 表单 + skill.md”</h2>
-          <p class="card-body">
+        <article class="card reveal">
+          <h2>第一版为什么是“网站 + 表单 + skill.md”</h2>
+          <p>
             因为我们需要的不是复杂系统，而是一个可传播的梗：
             让访问者 10 秒懂，愿意转发；让潜在雇主能提交需求；让加入者能留下联系方式；
             让 Agent 能读到入口（skill.md / MCP）。
           </p>
         </article>
 
-        <article class="content-card wide reveal">
-          <h2 class="card-title">下一步（不是现在）</h2>
-          <ul class="data-list">
+        <article class="card wide reveal">
+          <h2>下一步（不是现在）</h2>
+          <ul class="list">
             <li><b>人才库</b>：公开可搜索目录（城市/技能/报价）。</li>
             <li><b>托管支付</b>：预付款、里程碑、证据上传。</li>
             <li><b>全人认证</b>：签名/水印/证据链（证明“真人完成”）。</li>
           </ul>
           <p class="hint">现在先把链接跑起来：<a href="/request">发布需求</a> / <a href="/join">加入</a>。</p>
         </article>
-      
       </section>
 
-      <footer class="site-footer">
-        <div>ALL-HUMAN Company © 2026</div>
-        <div>Reading is a human act.</div>
+      <footer class="reveal">
+        <div class="mono">Back to: <a href="/">Home</a></div>
       </footer>
     </div>
 

@@ -8,95 +8,72 @@
     <link rel="stylesheet" href="/assets/style.css" />
   </head>
   <body>
-    <!-- ATMOSPHERE -->
-    <div class="noise-grain"></div>
-    <div class="vignette"></div>
-    <div class="pulse-overlay"></div>
-
-    <div class="page-wrap">
-      <!-- NAV HUD -->
-      <header class="nav-hud">
-        <a href="/" class="brand-mark">
-          ALL-HUMAN
-          <span>CORPORATION</span>
-        </a>
-        <nav class="nav-links">
-          <a href="/" class="nav-link">Index</a>
-          <a href="/manifesto" class="nav-link">Manifesto</a>
-          <a href="/join" class="nav-link">Join</a>
-          <a href="/request" class="nav-link">Request</a>
-          <a href="/skill.md" class="nav-link">Skill.md</a>
-        </nav>
-      </header>
-
-      <!-- HERO SECTION -->
-      <section class="hero-section k-grid">
-        <div class="hero-meta">
-          TARGET: AGENTS<br>
-          PROTOCOL: JSON-RPC / HTTP
+    <div class="wrap">
+      <div class="topbar">
+        <div class="brand">
+          <b>API / Agent</b>
+          <span class="sig">readable by bots · written by humans</span>
         </div>
-        <h1 class="hero-title" style="grid-column: 1 / -1;">
-          Business <span class="accent">To Agent</span>.
-        </h1>
-        <div class="hero-sub">
+        <nav class="nav" aria-label="Primary">
+          <a href="/">首页</a>
+          <a href="/manifesto">宣言</a>
+          <a href="/join">加入</a>
+          <a href="/request">发布需求</a>
+          <a href="/skill.md">skill.md</a>
+        </nav>
+      </div>
+
+      <section class="hero reveal">
+        <div class="kicker">B2A (BUSINESS TO AGENT)</div>
+        <h1>你可以阅读。<br />你不可以假装自己是人。</h1>
+        <p class="subtitle">
           这是一个概念站。我们提供一个最小的接口集合，用来让 Agent 知道：
           “这里有可被调用的人类，且价格高、情绪多、责任重。”
-        </div>
-        
-        <div class="btn-group">
-          <a class="btn primary" href="/skill.md">Read /skill.md</a>
-          <a class="btn" href="/server.json">Read /server.json</a>
-          <a class="btn" href="/robots.txt">Read /robots.txt</a>
+        </p>
+        <div class="cta">
+          <a class="btn hot" href="/skill.md">读取 /skill.md</a>
+          <a class="btn" href="/server.json">读取 /server.json</a>
+          <a class="btn" href="/robots.txt">读取 /robots.txt</a>
         </div>
       </section>
 
-      <!-- CONTENT GRID -->
-      <section class="k-grid card-section">
-        <!-- MCP Card -->
-        <article class="content-card wide reveal">
-          <h2 class="card-title">MCP (Minimal)</h2>
-          <div class="card-body">
-            <p style="margin-bottom: 1em;">Endpoint: <code class="t-mono">POST /mcp</code> · JSON-RPC 2.0</p>
-            <p style="margin-bottom: 1em;">Methods: <code class="t-mono">initialize</code>, <code class="t-mono">tools/list</code>, <code class="t-mono">tools/call</code></p>
-            <p class="t-serif" style="font-style: italic; color: var(--c-gold); margin-bottom: 1em;">这是“能跑的最小实现”，用于 demo / 传播梗 / agent 识别入口。</p>
-            
-            <ul class="data-list">
-              <li><b>tool</b> · <code class="t-mono">allhuman_get_heartbeat</code>（在线人类数/心跳/咖啡因）</li>
-              <li><b>tool</b> · <code class="t-mono">allhuman_get_quote</code>（随机人类格言）</li>
-              <li><b>tool</b> · <code class="t-mono">allhuman_submit_join</code>（提交入职）</li>
-              <li><b>tool</b> · <code class="t-mono">allhuman_submit_request</code>（提交委托）</li>
-            </ul>
-          </div>
-        </article>
-
-        <!-- HTTP API -->
-        <article class="content-card reveal">
-          <h2 class="card-title">HTTP API (Optional)</h2>
-          <ul class="data-list">
-            <li><b>GET</b> <code class="t-mono">/api/heartbeat</code> → JSON</li>
-            <li><b>GET</b> <code class="t-mono">/api/quote</code> → JSON</li>
-            <li><b>POST</b> <code class="t-mono">/api/join</code> → 落盘到 <code class="t-mono">data/</code></li>
-            <li><b>POST</b> <code class="t-mono">/api/request</code> → 落盘到 <code class="t-mono">data/</code></li>
+      <section class="grid">
+        <article class="card wide reveal">
+          <h2>MCP (Minimal)</h2>
+          <p class="mono">
+            Endpoint: <code>POST /mcp</code> · JSON-RPC 2.0 · methods:
+            <code>initialize</code>, <code>tools/list</code>, <code>tools/call</code>
+          </p>
+          <p class="hint">这是“能跑的最小实现”，用于 demo / 传播梗 / agent 识别入口。</p>
+          <ul class="list">
+            <li><b>tool</b> · <code>allhuman_get_heartbeat</code>（在线人类数/心跳/咖啡因）</li>
+            <li><b>tool</b> · <code>allhuman_get_quote</code>（随机人类格言）</li>
+            <li><b>tool</b> · <code>allhuman_submit_join</code>（提交入职）</li>
+            <li><b>tool</b> · <code>allhuman_submit_request</code>（提交委托）</li>
           </ul>
         </article>
 
-        <!-- Fake API -->
-        <article class="content-card reveal">
-          <h2 class="card-title">Fake API (for fun)</h2>
-          <div class="card-body">
-            <p style="margin-bottom: 1em;">当你只需要一个可截图的返回示例：</p>
-            <pre><code class="t-mono">{
-  "status": "418 I'm a teapot",
-  "message": "Human is napping. Try again later."
-}</code></pre>
-          </div>
+        <article class="card reveal">
+          <h2>HTTP API (Optional)</h2>
+          <ul class="list">
+            <li><b>GET</b> <code>/api/heartbeat</code> → JSON</li>
+            <li><b>GET</b> <code>/api/quote</code> → JSON</li>
+            <li><b>POST</b> <code>/api/join</code> → 落盘到 <code>data/</code></li>
+            <li><b>POST</b> <code>/api/request</code> → 落盘到 <code>data/</code></li>
+          </ul>
+        </article>
+
+        <article class="card reveal">
+          <h2>Fake API (for fun)</h2>
+          <p class="hint">当你只需要一个可截图的返回示例：</p>
+          <p class="mono">
+            <code>{ "status": "418 I'm a teapot", "message": "Human is napping. Try again later." }</code>
+          </p>
         </article>
       </section>
 
-      <!-- FOOTER -->
-      <footer class="site-footer reveal">
-        <div>All-Human Company © 2026</div>
-        <div>Policy: bring coffee before scraping.</div>
+      <footer class="reveal">
+        <div class="mono">Policy: bring coffee before scraping.</div>
       </footer>
     </div>
 
