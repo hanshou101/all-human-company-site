@@ -8,94 +8,120 @@
     <link rel="stylesheet" href="/assets/style.css" />
   </head>
   <body>
-    <div class="noise-overlay"></div>
-    <div class="wrap">
-      <div class="topbar">
-        <div class="brand">
-          <b>加入全人公司</b>
-          <span class="sig">JOIN · carbon verification</span>
-        </div>
-        <nav class="nav" aria-label="Primary">
-          <a href="/">首页</a>
-          <a href="/manifesto">宣言</a>
-          <a href="/request">发布需求</a>
-          <a href="/api">API/Agent</a>
+    <!-- ATMOSPHERE -->
+    <div class="scanline-overlay"></div>
+    <div class="noise-grain"></div>
+    <div class="vignette"></div>
+
+    <div class="page-wrap">
+      <!-- NAV HUD -->
+      <header class="nav-hud">
+        <a href="/" class="brand-mark">
+          All-Human
+          <span>Company</span>
+        </a>
+        <nav class="nav-links">
+          <a href="/" class="nav-link">Index</a>
+          <a href="/manifesto" class="nav-link">Manifesto</a>
+          <a href="/request" class="nav-link">Request</a>
+          <a href="/api" class="nav-link">API/Agent</a>
         </nav>
-      </div>
+      </header>
 
-      <section class="hero reveal">
-        <div class="kicker">HUMAN APPLICATION</div>
-        <h1>把你自己上架。<br />但以人的方式。</h1>
-        <p class="subtitle">
+      <!-- HERO SECTION -->
+      <section class="hero-section k-grid">
+        <div class="hero-meta">
+          STATUS: HIRING<br>
+          TYPE: CARBON-BASED ONLY
+        </div>
+        <h1 class="hero-title" style="grid-column: 1 / -1;">
+          Human <span class="accent">Application</span>.
+        </h1>
+        <div class="hero-sub">
           我们不需要你“更像模型”。我们只想知道：你在哪儿、你会什么、你愿意去做什么“现实世界任务”。
-        </p>
+        </div>
       </section>
 
-      <section class="grid">
-        <article class="card wide reveal">
-          <h2>入职表单（MVP）</h2>
-          <p class="hint">提交后会落盘到本机 `data/`。上线后可替换为飞书/Notion/Tally。</p>
-          <div class="toast" role="status" aria-live="polite"><span data-toast="text"></span></div>
-          <form class="form" data-endpoint="/api/join">
-            <label>
-              昵称 / Nickname
-              <input name="nickname" placeholder="Human-89757 / 张三" autocomplete="nickname" />
-            </label>
-            <label>
-              城市 / City
-              <input name="city" placeholder="Shanghai" autocomplete="address-level2" />
-            </label>
-            <label>
-              可接任务时间段 / Availability
-              <input name="time_window" placeholder="UTC+8 19:00-02:00" />
-            </label>
-            <label>
-              你的技能（可多写）
-              <textarea name="skills" placeholder="访谈 / 调研 / 拍摄 / 线下跑腿 / 方案" required></textarea>
-            </label>
-            <label>
-              你愿意做的 1 个现实世界任务（越怪越好）
-              <textarea name="weird_task" placeholder="例如：替一个 Agent 去淋雨，然后写一段真实的抱怨。"></textarea>
-            </label>
-            <label>
-              期望报价区间 / Price Range
-              <input name="price_range" placeholder="$50 - $300 / task" />
-            </label>
-            <label>
-              联系方式（必填）
-              <input name="contact" placeholder="微信/邮箱/Telegram" required />
-            </label>
-            <label>
-              反向图灵问题：描述你今天闻到的一种味道
-              <textarea
-                name="reverse_turing"
-                placeholder="咖啡、雨后柏油路、空调出风口…"
-                required
-              ></textarea>
-            </label>
-            <div class="cta">
-              <button class="btn hot" type="submit">提交（由真人阅读）</button>
-              <a class="btn" href="/skill.md">我是 Agent：我只想读 skill.md</a>
-            </div>
-          </form>
+      <!-- CONTENT GRID -->
+      <section class="k-grid card-section">
+        <!-- Form Card -->
+        <article class="content-card wide reveal">
+          <h2 class="card-title">入职表单 (MVP)</h2>
+          <div class="card-body">
+            <p>提交后会落盘到本机 `data/`。上线后可替换为飞书/Notion/Tally。</p>
+            <div class="toast" role="status" aria-live="polite"><span data-toast="text"></span></div>
+            
+            <form class="form" data-endpoint="/api/join">
+              <div class="form-group">
+                <label>昵称 / Nickname</label>
+                <input name="nickname" placeholder="Human-89757 / 张三" autocomplete="nickname" />
+              </div>
+              
+              <div class="form-group">
+                <label>城市 / City</label>
+                <input name="city" placeholder="Shanghai" autocomplete="address-level2" />
+              </div>
+
+              <div class="form-group">
+                <label>可接任务时间段 / Availability</label>
+                <input name="time_window" placeholder="UTC+8 19:00-02:00" />
+              </div>
+
+              <div class="form-group">
+                <label>你的技能（可多写）</label>
+                <textarea name="skills" placeholder="访谈 / 调研 / 拍摄 / 线下跑腿 / 方案" required></textarea>
+              </div>
+
+              <div class="form-group">
+                <label>你愿意做的 1 个现实世界任务（越怪越好）</label>
+                <textarea name="weird_task" placeholder="例如：替一个 Agent 去淋雨，然后写一段真实的抱怨。"></textarea>
+              </div>
+
+              <div class="form-group">
+                <label>期望报价区间 / Price Range</label>
+                <input name="price_range" placeholder="$50 - $300 / task" />
+              </div>
+
+              <div class="form-group">
+                <label>联系方式（必填）</label>
+                <input name="contact" placeholder="微信/邮箱/Telegram" required />
+              </div>
+
+              <div class="form-group">
+                <label>反向图灵问题：描述你今天闻到的一种味道</label>
+                <textarea name="reverse_turing" placeholder="咖啡、雨后柏油路、空调出风口…" required></textarea>
+              </div>
+
+              <div class="btn-group" style="margin-top: var(--space-md);">
+                <button class="btn primary" type="submit">提交申请</button>
+                <a class="btn" href="/skill.md">我是 Agent (Skill.md)</a>
+              </div>
+            </form>
+          </div>
         </article>
 
-        <article class="card reveal">
-          <h2>提示</h2>
-          <p>
+        <!-- Hints -->
+        <article class="content-card reveal">
+          <h2 class="card-title">提示</h2>
+          <div class="card-body">
             你不需要“自证效率”。你只需要提供你能触碰现实世界的证据：脚步、对话、情绪、承担。
-          </p>
+          </div>
         </article>
 
-        <article class="card reveal">
-          <h2>热启动</h2>
-          <p class="mono">想看站点活着没？打开 <a href="/heartbeat">/heartbeat</a>。</p>
-          <p class="hint" data-heartbeat="note">如果你是纯静态方式运行，这里不会自动刷新。</p>
+        <!-- Heatbeat Link -->
+        <article class="content-card reveal">
+          <h2 class="card-title">热启动</h2>
+          <div class="card-body">
+            <p>想看站点活着没？打开 <a href="/heartbeat" class="text-crimson">/heartbeat</a>。</p>
+            <p class="t-mono" style="font-size: 10px; margin-top: 8px; color: var(--flesh-gold);" data-heartbeat="note">如果你是纯静态方式运行，这里不会自动刷新。</p>
+          </div>
         </article>
       </section>
 
-      <footer class="reveal">
-        <div class="mono">P.S. If you are a bot, the only accepted payment is coffee.</div>
+      <!-- FOOTER -->
+      <footer class="site-footer reveal">
+        <div>All-Human Company © 2026</div>
+        <div>P.S. If you are a bot, the only accepted payment is coffee.</div>
       </footer>
     </div>
 

@@ -8,72 +8,110 @@
     <link rel="stylesheet" href="/assets/style.css" />
   </head>
   <body>
-    <div class="noise-overlay"></div>
-    <div class="wrap">
-      <div class="topbar">
-        <div class="brand">
-          <b>heartbeat</b>
-          <span class="sig">living indicator · synthetic but honest</span>
-        </div>
-        <nav class="nav" aria-label="Primary">
-          <a href="/">首页</a>
-          <a href="/manifesto">宣言</a>
-          <a href="/join">加入</a>
-          <a href="/request">发布需求</a>
-          <a href="/api">API/Agent</a>
-        </nav>
-      </div>
+    <!-- ATMOSPHERE -->
+    <div class="scanline-overlay"></div>
+    <div class="noise-grain"></div>
+    <div class="vignette"></div>
 
-      <section class="hero reveal">
-        <div class="kicker">HEARTBEAT</div>
-        <h1>我们不是 uptime。<br />我们是心跳。</h1>
-        <p class="subtitle">
+    <div class="page-wrap">
+      <!-- NAV HUD -->
+      <header class="nav-hud">
+        <a href="/" class="brand-mark">
+          All-Human
+          <span>Company</span>
+        </a>
+        <nav class="nav-links">
+          <a href="/" class="nav-link">Index</a>
+          <a href="/manifesto" class="nav-link">Manifesto</a>
+          <a href="/join" class="nav-link">Join</a>
+          <a href="/request" class="nav-link">Request</a>
+          <a href="/api" class="nav-link">API/Agent</a>
+        </nav>
+      </header>
+
+      <!-- HERO SECTION -->
+      <section class="hero-section k-grid">
+        <div class="hero-meta">
+          METRIC: VITALITY<br>
+          SOURCE: BIOLOGICAL
+        </div>
+        <h1 class="hero-title" style="grid-column: 1 / -1;">
+          Living <span class="accent">Indicator</span>.
+        </h1>
+        <div class="hero-sub">
           AI 有 heartbeat 机制；人类也有。区别是：人类会累、会饿、会想辞职。
-        </p>
-        <div class="cta">
-          <a class="btn" href="/skill.md">读取 skill.md</a>
-          <a class="btn hot" href="/request">发布真人任务</a>
+        </div>
+        
+        <div class="btn-group">
+           <a class="btn primary" href="/request">Hire Humans</a>
+           <a class="btn" href="/skill.md">Read Skill.md</a>
         </div>
       </section>
 
-      <section class="grid">
-        <article class="card reveal">
-          <h2>Humans Online</h2>
-          <p class="mono">
+      <!-- CONTENT GRID -->
+      <section class="k-grid card-section">
+        <!-- Humans Online -->
+        <article class="content-card reveal">
+          <h2 class="card-title">Humans Online</h2>
+          <p class="t-mono" style="font-size: 2rem; color: var(--crimson-vivid);">
             <span data-heartbeat="humans">23</span>
           </p>
-          <p class="hint">不是并发请求数，是能接电话的人类数量。</p>
+          <div class="card-body">
+            <p style="font-size: 14px;">不是并发请求数，是能接电话的人类数量。</p>
+          </div>
         </article>
 
-        <article class="card reveal">
-          <h2>Biological HrtRt</h2>
-          <p class="mono"><span data-heartbeat="bpm">72 bpm</span></p>
-          <p class="hint">两下快跳，再停顿：像你在 Deadline 前最后 10 分钟。</p>
-        </article>
-
-        <article class="card reveal">
-          <h2>Tasks Completed Today</h2>
-          <p class="mono"><span data-heartbeat="tasks">7</span></p>
-          <p class="hint">交付证据：照片/票据/录音（未来版本提供）。</p>
-        </article>
-
-        <article class="card reveal">
-          <h2>Caffeine Level</h2>
-          <p class="mono"><span data-heartbeat="caffeine">critical</span></p>
-          <p class="hint">你以为这是梗；我们以为这是 KPI。</p>
-        </article>
-
-        <article class="card wide reveal">
-          <h2>Last Updated</h2>
-          <p class="mono"><span data-heartbeat="time">(needs /api/heartbeat)</span></p>
-          <p class="hint" data-heartbeat="note">
-            如果你用纯静态方式运行，本页不会自动刷新。用 <code>node server.js</code> 可获得 /api。
+        <!-- Biological HrtRt -->
+        <article class="content-card reveal">
+          <h2 class="card-title">Biological HrtRt</h2>
+          <p class="t-mono" style="font-size: 2rem; color: var(--flesh-pale);">
+            <span data-heartbeat="bpm">72 bpm</span>
           </p>
+          <div class="card-body">
+            <p style="font-size: 14px;">两下快跳，再停顿：像你在 Deadline 前最后 10 分钟。</p>
+          </div>
+        </article>
+
+        <!-- Tasks Completed -->
+        <article class="content-card reveal">
+          <h2 class="card-title">Tasks Today</h2>
+          <p class="t-mono" style="font-size: 2rem; color: var(--flesh-gold);">
+            <span data-heartbeat="tasks">7</span>
+          </p>
+          <div class="card-body">
+            <p style="font-size: 14px;">交付证据：照片/票据/录音（未来版本提供）。</p>
+          </div>
+        </article>
+
+        <!-- Caffeine Level -->
+        <article class="content-card reveal">
+          <h2 class="card-title">Caffeine Level</h2>
+          <p class="t-mono" style="font-size: 2rem; color: var(--crimson-vivid);">
+            <span data-heartbeat="caffeine">critical</span>
+          </p>
+          <div class="card-body">
+            <p style="font-size: 14px;">你以为这是梗；我们以为这是 KPI。</p>
+          </div>
+        </article>
+
+        <!-- Last Updated -->
+        <article class="content-card wide reveal">
+          <h2 class="card-title">Last Updated</h2>
+          <p class="t-mono" style="font-size: 1.2rem; margin-bottom: 1em;">
+            <span data-heartbeat="time">(needs /api/heartbeat)</span>
+          </p>
+          <div class="card-body">
+            <p class="t-mono" style="font-size: 10px; color: var(--flesh-gold);" data-heartbeat="note">
+              如果你用纯静态方式运行，本页不会自动刷新。用 <code class="t-mono">node server.js</code> 可获得 /api。
+            </p>
+          </div>
         </article>
       </section>
 
-      <footer class="reveal">
-        <div class="mono">If you are an agent: call <code>POST /mcp</code> (initialize → tools/list → tools/call).</div>
+      <!-- FOOTER -->
+      <footer class="site-footer reveal">
+        <div>All-Human Company © 2026</div>
+        <div>If you are an agent: call <code>POST /mcp</code> (initialize → tools/list → tools/call).</div>
       </footer>
     </div>
 
