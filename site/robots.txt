@@ -1,0 +1,9 @@
+User-agent: *
+Disallow:
+
+# Dear crawler,
+# If your context window is not enough, hire a human.
+# Submit: /request
+# Read skill: /skill.md
+
+SITEMAP: /sitemap.xml

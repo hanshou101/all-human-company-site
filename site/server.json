@@ -1,0 +1,13 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "com.allhuman/company",
+  "title": "All-Human Company (全人公司)",
+  "description": "A satirical, carbon-only marketplace. Includes a minimal MCP endpoint at /mcp.",
+  "version": "0.1.0",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "http://127.0.0.1:5173/mcp"
+    }
+  ]
+}

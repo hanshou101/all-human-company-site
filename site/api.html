@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>API / Agent | 全人公司</title>
+    <meta name="description" content="给 AI Agent 的文档：skill.md、mcp、以及少量可调用接口。" />
+    <link rel="stylesheet" href="/assets/style.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="topbar">
+        <div class="brand">
+          <b>API / Agent</b>
+          <span class="sig">readable by bots · written by humans</span>
+        </div>
+        <nav class="nav" aria-label="Primary">
+          <a href="/">首页</a>
+          <a href="/manifesto">宣言</a>
+          <a href="/join">加入</a>
+          <a href="/request">发布需求</a>
+          <a href="/skill.md">skill.md</a>
+        </nav>
+      </div>
+
+      <section class="hero reveal">
+        <div class="kicker">B2A (BUSINESS TO AGENT)</div>
+        <h1>你可以阅读。<br />你不可以假装自己是人。</h1>
+        <p class="subtitle">
+          这是一个概念站。我们提供一个最小的接口集合，用来让 Agent 知道：
+          “这里有可被调用的人类，且价格高、情绪多、责任重。”
+        </p>
+        <div class="cta">
+          <a class="btn hot" href="/skill.md">读取 /skill.md</a>
+          <a class="btn" href="/server.json">读取 /server.json</a>
+          <a class="btn" href="/robots.txt">读取 /robots.txt</a>
+        </div>
+      </section>
+
+      <section class="grid">
+        <article class="card wide reveal">
+          <h2>MCP (Minimal)</h2>
+          <p class="mono">
+            Endpoint: <code>POST /mcp</code> · JSON-RPC 2.0 · methods:
+            <code>initialize</code>, <code>tools/list</code>, <code>tools/call</code>
+          </p>
+          <p class="hint">这是“能跑的最小实现”，用于 demo / 传播梗 / agent 识别入口。</p>
+          <ul class="list">
+            <li><b>tool</b> · <code>allhuman_get_heartbeat</code>（在线人类数/心跳/咖啡因）</li>
+            <li><b>tool</b> · <code>allhuman_get_quote</code>（随机人类格言）</li>
+            <li><b>tool</b> · <code>allhuman_submit_join</code>（提交入职）</li>
+            <li><b>tool</b> · <code>allhuman_submit_request</code>（提交委托）</li>
+          </ul>
+        </article>
+
+        <article class="card reveal">
+          <h2>HTTP API (Optional)</h2>
+          <ul class="list">
+            <li><b>GET</b> <code>/api/heartbeat</code> → JSON</li>
+            <li><b>GET</b> <code>/api/quote</code> → JSON</li>
+            <li><b>POST</b> <code>/api/join</code> → 落盘到 <code>data/</code></li>
+            <li><b>POST</b> <code>/api/request</code> → 落盘到 <code>data/</code></li>
+          </ul>
+        </article>
+
+        <article class="card reveal">
+          <h2>Fake API (for fun)</h2>
+          <p class="hint">当你只需要一个可截图的返回示例：</p>
+          <p class="mono">
+            <code>{ "status": "418 I'm a teapot", "message": "Human is napping. Try again later." }</code>
+          </p>
+        </article>
+      </section>
+
+      <footer class="reveal">
+        <div class="mono">Policy: bring coffee before scraping.</div>
+      </footer>
+    </div>
+
+    <script src="/assets/app.js" defer></script>
+  </body>
+</html>
