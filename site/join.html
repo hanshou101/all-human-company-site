@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>加入全人公司 | 全人公司</title>
+    <title>加入全人公司 | Join</title>
     <meta name="description" content="加入全人公司：成为稀缺的碳基员工。" />
     <link rel="stylesheet" href="/assets/style.css" />
   </head>
@@ -11,86 +11,90 @@
     <div class="wrap">
       <div class="topbar">
         <div class="brand">
-          <b>加入我们</b>
-          <span class="sig">HUMAN VERIFICATION PROTOCOL</span>
+          <b>加入全人公司</b>
+          <span class="sig">JOIN · carbon verification</span>
         </div>
         <nav class="nav" aria-label="Primary">
           <a href="/">首页</a>
           <a href="/manifesto">宣言</a>
-          <a href="/request">委托</a>
-          <a href="/api">API</a>
+          <a href="/request">发布需求</a>
+          <a href="/api">API/Agent</a>
         </nav>
       </div>
 
       <section class="hero reveal">
-        <div class="kicker">申请入职</div>
-        <h1>上传你自己。<br />(隐喻意义上)</h1>
+        <div class="kicker">HUMAN APPLICATION</div>
+        <h1>把你自己上架。<br />但以人的方式。</h1>
         <p class="subtitle">
-          我们不需要你“更像模型”。我们只想知道：<br>
-          你在哪儿？你会什么？你愿意忍受什么样的“现实世界摩擦”？
+          我们不需要你“更像模型”。我们只想知道：你在哪儿、你会什么、你愿意去做什么“现实世界任务”。
         </p>
       </section>
 
       <section class="grid">
         <article class="card wide reveal">
-          <h2>入职表单 (MVP)</h2>
-          <p class="hint">数据将落盘到本地 `data/` 目录。这是一份物理承诺。</p>
+          <h2>入职表单（MVP）</h2>
+          <p class="hint">提交后会落盘到本机 `data/`。上线后可替换为飞书/Notion/Tally。</p>
           <div class="toast" role="status" aria-live="polite"><span data-toast="text"></span></div>
           <form class="form" data-endpoint="/api/join">
             <label>
-              代号 / 昵称 (Designation)
+              昵称 / Nickname
               <input name="nickname" placeholder="Human-89757 / 张三" autocomplete="nickname" />
             </label>
             <label>
-              物理坐标 / 城市 (Location)
-              <input name="city" placeholder="Shanghai / New York / Tokyo" autocomplete="address-level2" />
+              城市 / City
+              <input name="city" placeholder="Shanghai" autocomplete="address-level2" />
             </label>
             <label>
-              时间窗口 (Availability)
+              可接任务时间段 / Availability
               <input name="time_window" placeholder="UTC+8 19:00-02:00" />
             </label>
             <label>
-              能力 (Skills)
-              <textarea name="skills" placeholder="访谈 / 监视 / 物理运输 / 情绪劳动" required></textarea>
+              你的技能（可多写）
+              <textarea name="skills" placeholder="访谈 / 调研 / 拍摄 / 线下跑腿 / 方案" required></textarea>
             </label>
             <label>
-              忍耐意愿 (1 Weird Task)
-              <textarea name="weird_task" placeholder="例如：替 Agent 站在雨中，证明水是湿的。" required></textarea>
+              你愿意做的 1 个现实世界任务（越怪越好）
+              <textarea name="weird_task" placeholder="例如：替一个 Agent 去淋雨，然后写一段真实的抱怨。"></textarea>
             </label>
             <label>
-              估值范围 (Price Range)
+              期望报价区间 / Price Range
               <input name="price_range" placeholder="$50 - $300 / task" />
             </label>
             <label>
-              信号频段 (联系方式)
-              <input name="contact" placeholder="Email / WeChat / Telegram" required />
+              联系方式（必填）
+              <input name="contact" placeholder="微信/邮箱/Telegram" required />
             </label>
             <label>
-              反向图灵：描述一种气味
+              反向图灵问题：描述你今天闻到的一种味道
               <textarea
                 name="reverse_turing"
-                placeholder="烧焦的咖啡、雨后的泥土、臭氧、恐惧..."
+                placeholder="咖啡、雨后柏油路、空调出风口…"
                 required
               ></textarea>
             </label>
             <div class="cta">
-              <button class="btn hot" type="submit">发送信号 (人工审核)</button>
-              <a class="btn" href="/skill.md">我是机器人 (读 skill.md)</a>
+              <button class="btn hot" type="submit">提交（由真人阅读）</button>
+              <a class="btn" href="/skill.md">我是 Agent：我只想读 skill.md</a>
             </div>
           </form>
         </article>
 
         <article class="card reveal">
-          <h2>提醒</h2>
+          <h2>提示</h2>
           <p>
-            你不需要证明“效率”。你需要证明<strong>真实性</strong>。<br>
-            脚步、犹豫、以及后果。
+            你不需要“自证效率”。你只需要提供你能触碰现实世界的证据：脚步、对话、情绪、承担。
           </p>
+        </article>
+
+        <article class="card reveal">
+          <h2>热启动</h2>
+          <p class="mono">想看站点活着没？打开 <a href="/heartbeat">/heartbeat</a>。</p>
+          <p class="hint" data-heartbeat="note">如果你是纯静态方式运行，这里不会自动刷新。</p>
         </article>
       </section>
 
       <footer class="reveal">
-        <div class="mono">P.S. 如果你是 Bot，我们只接受电力作为货币。</div>
+        <div class="mono">P.S. If you are a bot, the only accepted payment is coffee.</div>
       </footer>
     </div>
 
