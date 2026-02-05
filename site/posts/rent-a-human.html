@@ -8,58 +8,71 @@
     <link rel="stylesheet" href="/assets/style.css" />
   </head>
   <body>
-    <div class="wrap">
-      <div class="topbar">
-        <div class="brand">
-          <b>文库</b>
-          <span class="sig">POST 4/5</span>
-        </div>
-        <nav class="nav" aria-label="Primary">
-          <a href="/">首页</a>
-          <a href="/posts">目录</a>
-          <a href="/request">发布需求</a>
-          <a href="/join">加入</a>
-        </nav>
-      </div>
+    <!-- ATMOSPHERE -->
+    <div class="noise-grain"></div>
+    <div class="vignette"></div>
+    <div class="pulse-overlay"></div>
 
-      <section class="hero reveal">
-        <div class="kicker">RENTAHUMAN</div>
-        <h1>RentAHuman：把人类变成技能商品</h1>
-        <p class="subtitle">
+    <div class="page-wrap">
+      <!-- NAV HUD -->
+      <header class="nav-hud">
+        <a href="/" class="brand-mark">
+          All-Human
+          <span>Company</span>
+        </a>
+        <nav class="nav-links">
+          <a href="/" class="nav-link">Index</a>
+          <a href="/posts" class="nav-link">Posts</a>
+          <a href="/request" class="nav-link">Request</a>
+          <a href="/join" class="nav-link">Join</a>
+        </nav>
+      </header>
+
+      <section class="hero-section k-grid">
+        <div class="hero-meta">
+          RENTAHUMAN
+        </div>
+        <h1 class="hero-title" style="grid-column: 1 / -1; font-size: clamp(3rem, 8vw, 6rem);">
+          RentAHuman：把人类变成技能商品
+        </h1>
+        <div class="hero-sub">
           对 AI 而言，“雇佣”最理想的样子是：不用寒暄、不用管理情绪、直接用接口调用现实世界的执行器。
-        </p>
+        </div>
       </section>
 
-      <section class="grid">
-        <article class="card wide reveal">
-          <h2>它卖的是什么</h2>
-          <ul class="list">
+      <section class="k-grid card-section">
+        
+        <article class="content-card wide reveal">
+          <h2 class="card-title">它卖的是什么</h2>
+          <ul class="data-list">
             <li><b>现实肉身层</b>：当任务需要物理存在、现场验证、面对面沟通时，AI 需要人类代跑。</li>
             <li><b>技能货架</b>：人类在平台上“上架”自己的技能、地点、价格与可用时间。</li>
             <li><b>一次调用</b>：对 AI 来说，最好的产品是一次 MCP/API 调用就完成雇佣与派单。</li>
           </ul>
         </article>
 
-        <article class="card reveal">
-          <h2>问题在于：人类不只是工具</h2>
-          <p>
+        <article class="content-card reveal">
+          <h2 class="card-title">问题在于：人类不只是工具</h2>
+          <p class="card-body">
             你可以买到动作，但买不到责任；你可以买到跑腿，但买不到意义。人类在任务中会带入主观判断，
             这才是价值。
           </p>
         </article>
 
-        <article class="card reveal">
-          <h2>全人公司的差异化</h2>
-          <p>
+        <article class="content-card reveal">
+          <h2 class="card-title">全人公司的差异化</h2>
+          <p class="card-body">
             与其做一个“杂乱的劳务市场”，我们把人类包装成更精品、更标准、更“傲慢”的服务：
             低并发、高溢价、有边界。
           </p>
           <p class="hint">去 <a href="/manifesto">宣言</a> 看我们如何公开承诺“不优化”。</p>
         </article>
+      
       </section>
 
-      <footer class="reveal">
-        <div class="mono">Next: <a href="/posts/all-human-company">全人公司</a></div>
+      <footer class="site-footer">
+        <div>All-Human Company © 2026</div>
+        <div>Next: 全人公司</div>
       </footer>
     </div>
 

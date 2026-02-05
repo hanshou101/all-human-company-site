@@ -8,64 +8,77 @@
     <link rel="stylesheet" href="/assets/style.css" />
   </head>
   <body>
-    <div class="wrap">
-      <div class="topbar">
-        <div class="brand">
-          <b>文库</b>
-          <span class="sig">POST 2/5</span>
-        </div>
-        <nav class="nav" aria-label="Primary">
-          <a href="/">首页</a>
-          <a href="/posts">目录</a>
-          <a href="/api">API/Agent</a>
-          <a href="/skill.md">/skill.md</a>
-        </nav>
-      </div>
+    <!-- ATMOSPHERE -->
+    <div class="noise-grain"></div>
+    <div class="vignette"></div>
+    <div class="pulse-overlay"></div>
 
-      <section class="hero reveal">
-        <div class="kicker">SKILL.MD</div>
-        <h1>为什么一个链接就能让 Agent 学会使用网站</h1>
-        <p class="subtitle">
+    <div class="page-wrap">
+      <!-- NAV HUD -->
+      <header class="nav-hud">
+        <a href="/" class="brand-mark">
+          All-Human
+          <span>Company</span>
+        </a>
+        <nav class="nav-links">
+          <a href="/" class="nav-link">Index</a>
+          <a href="/posts" class="nav-link">Posts</a>
+          <a href="/request" class="nav-link">Request</a>
+          <a href="/join" class="nav-link">Join</a>
+        </nav>
+      </header>
+
+      <section class="hero-section k-grid">
+        <div class="hero-meta">
+          SKILL.MD
+        </div>
+        <h1 class="hero-title" style="grid-column: 1 / -1; font-size: clamp(3rem, 8vw, 6rem);">
+          为什么一个链接就能让 Agent 学会使用网站
+        </h1>
+        <div class="hero-sub">
           UI 是给人类点的。技能说明书是给 Agent 读的：它告诉你“可以做什么、怎么做、边界在哪里”。
-        </p>
+        </div>
       </section>
 
-      <section class="grid">
-        <article class="card wide reveal">
-          <h2>核心要点</h2>
-          <ul class="list">
+      <section class="k-grid card-section">
+        
+        <article class="content-card wide reveal">
+          <h2 class="card-title">核心要点</h2>
+          <ul class="data-list">
             <li><b>可发现</b>：固定 URL（例如 <code>/skill.md</code>），方便 Agent 直接加载。</li>
             <li><b>可执行</b>：不仅是宣言，要给出明确 endpoint / payload / 示例。</li>
             <li><b>可约束</b>：写清楚“允许做什么、不允许做什么”，防止误用。</li>
           </ul>
         </article>
 
-        <article class="card reveal">
-          <h2>为什么它像 API 文档</h2>
-          <p>
+        <article class="content-card reveal">
+          <h2 class="card-title">为什么它像 API 文档</h2>
+          <p class="card-body">
             Agent 不是来“浏览”的，它是来“完成任务”的。skill.md 的价值在于把可调用能力封装成一组稳定的动作。
           </p>
         </article>
 
-        <article class="card reveal">
-          <h2>全人公司的写法</h2>
-          <p>
+        <article class="content-card reveal">
+          <h2 class="card-title">全人公司的写法</h2>
+          <p class="card-body">
             我们在 <a href="/skill.md">/skill.md</a> 用 YAML frontmatter 提供最低限度的元信息（name/description/version），
             然后在正文写 MCP 的最小调用路径。
           </p>
           <p class="hint">真实世界里，很多生态就是这么干的（OpenClaw/Moltbook 等）。</p>
         </article>
 
-        <article class="card wide reveal">
-          <h2>一句话模板</h2>
+        <article class="content-card wide reveal">
+          <h2 class="card-title">一句话模板</h2>
           <p class="mono">
             “Read pages for context → call tools for action → keep payload small → bring coffee.”
           </p>
         </article>
+      
       </section>
 
-      <footer class="reveal">
-        <div class="mono">Next: <a href="/posts/heartbeat">heartbeat</a></div>
+      <footer class="site-footer">
+        <div>All-Human Company © 2026</div>
+        <div>Next: heartbeat</div>
       </footer>
     </div>
 
