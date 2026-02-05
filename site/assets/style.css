@@ -4,14 +4,14 @@
   --bg-panel: rgba(20, 20, 20, 0.4);
   --bg-panel-hover: rgba(40, 40, 40, 0.5);
   
-  --color-flesh: #eec; /* The biological imperative */
-  --color-flesh-dim: #c8c8a0;
+  --color-flesh: #f2e8d5; /* Warmer, bone-like organic tone */
+  --color-flesh-dim: #c8c0a0;
   
-  --color-blood: #ff2a2a; /* Life force */
-  --color-blood-glow: rgba(255, 42, 42, 0.6);
+  --color-blood: #d41c1c; /* Deeper, visceral red */
+  --color-blood-glow: rgba(212, 28, 28, 0.5);
   
   --color-text-main: #f0f0f0;
-  --color-text-muted: #888;
+  --color-text-muted: #999; /* Slightly lighter for readability */
   
   --border-subtle: rgba(255, 255, 255, 0.08);
   --border-focus: rgba(255, 255, 255, 0.2);
@@ -42,7 +42,7 @@ body {
   color: var(--color-text-main);
   font-family: var(--font-sans);
   overflow-x: hidden;
-  line-height: 1.6;
+  line-height: 1.65; /* Increased line-height for readability */
   -webkit-font-smoothing: antialiased;
 }
 
@@ -76,9 +76,9 @@ body::after {
   width: 200%;
   height: 200%;
   background: 
-    radial-gradient(circle at 50% 50%, rgba(20, 10, 10, 0) 0%, var(--bg-void) 80%),
-    radial-gradient(circle at 80% 20%, rgba(255, 42, 42, 0.04) 0%, transparent 40%),
-    radial-gradient(circle at 20% 80%, rgba(238, 238, 204, 0.03) 0%, transparent 40%);
+    radial-gradient(circle at 50% 50%, rgba(20, 10, 10, 0) 0%, var(--bg-void) 85%),
+    radial-gradient(circle at 80% 20%, rgba(212, 28, 28, 0.06) 0%, transparent 45%),
+    radial-gradient(circle at 20% 80%, rgba(242, 232, 213, 0.04) 0%, transparent 45%);
   pointer-events: none;
   z-index: -1;
   animation: breathe 10s ease-in-out infinite alternate;
@@ -138,20 +138,24 @@ a:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 24px;
-  background: rgba(10, 10, 10, 0.7);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  padding: 14px 28px; /* Slightly larger padding */
+  background: rgba(10, 10, 10, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--border-subtle);
+  border-top: 1px solid rgba(255, 255, 255, 0.12); /* Highlight top edge */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
   border-radius: 999px;
   z-index: 1000;
-  box-shadow: 0 10px 40px -10px rgba(0,0,0,0.8);
+  box-shadow: 
+    0 10px 40px -10px rgba(0,0,0,0.8),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05); /* Inner light */
   transition: all 0.3s var(--ease-out);
 }
 
 .topbar:hover {
   border-color: var(--border-focus);
-  background: rgba(15, 15, 15, 0.85);
+  background: rgba(15, 15, 15, 0.8);
 }
 
 .brand {
@@ -162,39 +166,41 @@ a:hover {
 
 .brand b {
   font-family: var(--font-serif);
-  font-size: 18px;
+  font-size: 20px; /* Increased from 18px */
   color: var(--color-text-main);
 }
 
 .brand .sig {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 12px; /* Increased from 10px */
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--color-text-muted);
-  opacity: 0.6;
+  opacity: 0.7;
 }
 
 .nav {
   display: flex;
-  gap: 4px;
+  gap: 6px; /* Slightly more gap */
 }
 
 .nav a {
   font-family: var(--font-mono);
-  font-size: 11px;
-  padding: 8px 16px;
+  font-size: 13px; /* Increased from 11px */
+  padding: 10px 18px; /* Larger hit area */
   border: 1px solid transparent;
   border-radius: 999px;
   color: var(--color-text-muted);
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  font-weight: 500;
 }
 
 .nav a:hover {
   color: var(--color-text-main);
   background: rgba(255,255,255,0.05);
-  border-color: rgba(255,255,255,0.05);
+  border-color: rgba(255,255,255,0.08);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 /* Hero Section - The Manifesto */
@@ -209,15 +215,15 @@ a:hover {
 .kicker {
   font-family: var(--font-mono);
   color: var(--color-blood);
-  font-size: 10px;
+  font-size: 12px; /* Increased from 10px */
   letter-spacing: 0.2em;
   text-transform: uppercase;
   margin-bottom: 24px;
-  padding: 6px 12px;
-  border: 1px solid rgba(255, 42, 42, 0.3);
+  padding: 8px 16px; /* Larger padding */
+  border: 1px solid rgba(212, 28, 28, 0.3);
   border-radius: 100px;
-  background: rgba(255, 42, 42, 0.05);
-  box-shadow: 0 0 20px rgba(255, 42, 42, 0.1);
+  background: rgba(212, 28, 28, 0.05);
+  box-shadow: 0 0 20px rgba(212, 28, 28, 0.15);
 }
 
 h1 {
@@ -225,7 +231,7 @@ h1 {
   line-height: 0.95;
   margin-bottom: 32px;
   color: var(--color-text-main);
-  text-shadow: 0 0 40px rgba(255,255,255,0.1);
+  text-shadow: 0 0 50px rgba(255,255,255,0.08);
 }
 
 h1 br {
@@ -261,10 +267,10 @@ h1 br {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 16px 32px;
-  border-radius: 100px; /* Organic pill shape */
+  padding: 18px 36px; /* Larger comfortable tap target */
+  border-radius: 100px;
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 14px; /* Increased from 12px */
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-weight: 600;
@@ -277,54 +283,73 @@ h1 br {
 .btn.hot {
   background: var(--color-blood);
   color: #000;
-  box-shadow: 0 0 30px var(--color-blood-glow);
+  /* Tactile glow and inner light */
+  box-shadow: 
+    0 0 30px var(--color-blood-glow),
+    inset 0 2px 0 rgba(255, 255, 255, 0.2); 
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* Add noise texture to hot button */
+.btn.hot::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.15'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+  pointer-events: none;
 }
 
 .btn.hot:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 50px var(--color-blood-glow);
-  background: #ff4d4d;
+  box-shadow: 
+    0 10px 50px var(--color-blood-glow),
+    inset 0 2px 0 rgba(255, 255, 255, 0.3);
+  background: #e62020; /* Slightly brighter on hover */
 }
 
 .btn:not(.hot) {
   background: rgba(255,255,255,0.03);
   border: 1px solid rgba(255,255,255,0.1);
   color: var(--color-text-main);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
 }
 
 .btn:not(.hot):hover {
   background: rgba(255,255,255,0.08);
   border-color: rgba(255,255,255,0.3);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .pill {
-  font-size: 9px;
+  font-size: 11px; /* Increased from 9px */
   background: #000;
   color: #fff;
-  padding: 2px 6px;
+  padding: 3px 8px; /* Adjusted padding */
   border-radius: 4px;
   margin-right: 8px;
-  opacity: 0.7;
+  opacity: 0.8;
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .dot {
   display: inline-block;
-  width: 6px;
-  height: 6px;
+  width: 8px; /* Slightly larger */
+  height: 8px;
   border-radius: 50%;
   background: currentColor;
 }
 
 .dot.hot {
   background: var(--color-blood);
-  box-shadow: 0 0 8px var(--color-blood);
+  box-shadow: 0 0 10px var(--color-blood);
   animation: pulse 1.5s infinite;
 }
 
 @keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(255,42,42,0.7); }
-  70% { box-shadow: 0 0 0 10px rgba(255,42,42,0); }
-  100% { box-shadow: 0 0 0 0 rgba(255,42,42,0); }
+  0% { box-shadow: 0 0 0 0 rgba(212, 28, 28, 0.7); }
+  70% { box-shadow: 0 0 0 12px rgba(212, 28, 28, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(212, 28, 28, 0); }
 }
 
 /* Stats Dashboard - "The Monitor" */
@@ -333,40 +358,42 @@ h1 br {
   grid-template-columns: repeat(3, 1fr);
   gap: 1px;
   margin-top: 64px;
-  background: var(--border-subtle); /* Gaps created by border color */
+  background: var(--border-subtle);
   border: 1px solid var(--border-subtle);
   border-radius: 16px;
   overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
 }
 
 .stat {
-  background: rgba(10,10,10,0.8);
-  padding: 24px;
+  background: rgba(12, 12, 12, 0.85);
+  padding: 28px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 120px;
+  height: 140px; /* Taller for better spacing */
   transition: background 0.3s;
 }
 
 .stat:hover {
-  background: rgba(20,20,20,0.9);
+  background: rgba(25, 25, 25, 0.9);
 }
 
 .stat .k {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 12px; /* Increased from 10px */
   color: var(--color-text-muted);
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
 
 .stat .v {
-  font-family: var(--font-sans); /* Use sans for numbers */
-  font-size: 24px;
+  font-family: var(--font-sans);
+  font-size: 28px; /* Larger numbers */
   font-weight: 300;
   color: var(--color-text-main);
   font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
 }
 
 /* Grid Layout */
@@ -379,19 +406,26 @@ h1 br {
 
 .card {
   grid-column: span 6;
-  background: linear-gradient(180deg, rgba(20,20,20,0.6) 0%, rgba(10,10,10,0.4) 100%);
+  background: linear-gradient(180deg, rgba(22, 22, 22, 0.7) 0%, rgba(10, 10, 10, 0.5) 100%);
   border: 1px solid var(--border-subtle);
+  border-top: 1px solid rgba(255, 255, 255, 0.12); /* Glass top edge */
   border-radius: var(--radius-lg);
   padding: 40px;
   position: relative;
   transition: all 0.4s var(--ease-out);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
+  box-shadow: 
+    0 4px 20px rgba(0,0,0,0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
 }
 
 .card:hover {
   transform: translateY(-4px) scale(1.01);
   border-color: rgba(255,255,255,0.15);
-  box-shadow: 0 20px 60px -20px rgba(0,0,0,1);
+  border-top-color: rgba(255,255,255,0.25);
+  box-shadow: 
+    0 20px 60px -20px rgba(0,0,0,1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .card.wide {
@@ -399,42 +433,43 @@ h1 br {
 }
 
 .card h2 {
-  font-size: 28px;
-  margin-bottom: 16px;
+  font-size: 32px; /* Increased heading */
+  margin-bottom: 20px;
   color: var(--color-flesh);
+  letter-spacing: -0.01em;
 }
 
 .card p {
-  font-size: 16px;
-  line-height: 1.7;
+  font-size: 17px; /* Increased body copy */
+  line-height: 1.75;
 }
 
 .card code {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 13px; /* Increased from 11px */
   color: var(--color-blood);
-  background: rgba(255,42,42,0.08);
-  padding: 4px 8px;
-  border-radius: 4px;
-  border: 1px solid rgba(255,42,42,0.1);
+  background: rgba(212, 28, 28, 0.08);
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(212, 28, 28, 0.15);
 }
 
 /* Lists with "Tech" feel */
 .list {
   list-style: none;
   padding: 0;
-  margin-top: 24px;
+  margin-top: 32px;
   display: grid;
-  gap: 16px;
+  gap: 20px;
 }
 
 .list li {
   position: relative;
-  padding-left: 24px;
+  padding-left: 28px;
   color: var(--color-text-muted);
-  font-size: 15px;
+  font-size: 16px; /* Increased from 15px */
   border-bottom: 1px solid rgba(255,255,255,0.03);
-  padding-bottom: 16px;
+  padding-bottom: 20px;
 }
 
 .list li::before {
@@ -444,6 +479,7 @@ h1 br {
   top: 0;
   color: var(--color-blood);
   font-family: var(--font-mono);
+  font-size: 14px;
 }
 
 .list b {
@@ -453,33 +489,33 @@ h1 br {
 
 /* Footer */
 footer {
-  margin-top: 120px;
+  margin-top: 140px;
   border-top: 1px solid var(--border-subtle);
   padding-top: 40px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 13px; /* Increased from 11px */
   color: var(--color-text-muted);
-  opacity: 0.5;
+  opacity: 0.6;
 }
 
 /* Forms */
 .form {
   display: grid;
-  gap: 24px;
+  gap: 28px;
   max-width: 600px;
 }
 
 label {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 13px; /* Increased from 11px */
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--color-text-muted);
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 input, textarea, select {
@@ -487,22 +523,25 @@ input, textarea, select {
   background: rgba(0,0,0,0.3);
   border: 1px solid var(--border-subtle);
   border-radius: 8px;
-  padding: 16px;
+  padding: 18px; /* Larger hit area */
   color: var(--color-text-main);
   font-family: var(--font-sans);
-  font-size: 16px;
+  font-size: 17px; /* Increased input font */
   transition: all 0.2s;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
 }
 
 input:focus, textarea:focus, select:focus {
   outline: none;
   border-color: var(--color-flesh);
   background: rgba(20,20,20,0.8);
-  box-shadow: 0 0 0 2px rgba(238,238,204,0.1);
+  box-shadow: 
+    0 0 0 2px rgba(242, 232, 213, 0.1),
+    inset 0 2px 4px rgba(0,0,0,0.1);
 }
 
 textarea {
-  min-height: 150px;
+  min-height: 160px;
   resize: vertical;
 }
 
@@ -523,13 +562,14 @@ textarea {
   position: fixed;
   bottom: 32px;
   right: 32px;
-  padding: 20px 24px;
-  background: rgba(10,10,10,0.9);
+  padding: 24px 32px;
+  background: rgba(15, 15, 15, 0.95);
+  backdrop-filter: blur(10px);
   border: 1px solid var(--color-flesh);
   color: var(--color-flesh);
   border-radius: 12px;
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 14px; /* Increased from 13px */
   z-index: 2000;
   display: none;
   box-shadow: 0 20px 50px rgba(0,0,0,0.5);
@@ -551,12 +591,19 @@ textarea {
   .topbar {
     flex-direction: column;
     align-items: flex-start;
-    gap: 12px;
-    border-radius: 20px;
+    gap: 16px;
+    border-radius: 24px;
+    padding: 20px 24px;
   }
-  .nav { width: 100%; overflow-x: auto; padding-bottom: 4px; }
+  .nav { 
+    width: 100%; 
+    overflow-x: auto; 
+    padding-bottom: 8px; 
+    gap: 8px;
+  }
   .grid { display: flex; flex-direction: column; }
   .card, .card.wide { grid-column: auto; }
   .stats { grid-template-columns: 1fr; }
-  h1 { font-size: 42px; }
+  h1 { font-size: 48px; }
+  .btn { width: 100%; }
 }
