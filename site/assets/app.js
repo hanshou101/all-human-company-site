@@ -1,134 +1,144 @@
 /*
-  Minimal, dependency-free client script:
-  - reveal-on-load animation
-  - heartbeat widgets (if API is available)
-  - form submit to local /api/* endpoints (optional)
+  Grandmaster Interaction Layer
+  - Biological Mouse Trail
+  - Reveal Animations
+  - Heartbeat Data
 */
 
-function qs(sel, root) {
-  return (root || document).querySelector(sel);
+const state = {
+  mouseX: 0,
+  mouseY: 0,
+  trailX: 0,
+  trailY: 0
+};
+
+function createCursor() {
+  const cursor = document.createElement('div');
+  cursor.className = 'bio-cursor';
+  Object.assign(cursor.style, {
+    position: 'fixed',
+    top: '0',
+    left: '0',
+    width: '20px',
+    height: '20px',
+    border: '1px solid var(--blood)',
+    borderRadius: '50%',
+    pointerEvents: 'none',
+    zIndex: '9999',
+    transform: 'translate(-50%, -50%)',
+    transition: 'width 0.3s, height 0.3s, background 0.3s',
+    mixBlendMode: 'difference'
+  });
+  
+  const dot = document.createElement('div');
+  Object.assign(dot.style, {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    width: '4px',
+    height: '4px',
+    background: 'var(--blood)',
+    borderRadius: '50%',
+    transform: 'translate(-50%, -50%)'
+  });
+  
+  cursor.appendChild(dot);
+  document.body.appendChild(cursor);
+  return cursor;
 }
 
-function qsa(sel, root) {
-  return Array.from((root || document).querySelectorAll(sel));
-}
+function initCursor() {
+  const cursor = createCursor();
+  
+  document.addEventListener('mousemove', (e) => {
+    state.mouseX = e.clientX;
+    state.mouseY = e.clientY;
+  });
 
-function safeText(el, text) {
-  if (!el) return;
-  el.textContent = String(text);
-}
-
-async function fetchJson(url, options) {
-  const res = await fetch(url, options);
-  const ct = res.headers.get("content-type") || "";
-  const isJson = ct.includes("application/json");
-  const data = isJson ? await res.json() : await res.text();
-  if (!res.ok) {
-    const msg = isJson ? (data && data.error ? data.error : JSON.stringify(data)) : String(data);
-    const err = new Error(msg);
-    err.status = res.status;
-    throw err;
+  // Smooth trail loop
+  function loop() {
+    state.trailX += (state.mouseX - state.trailX) * 0.15;
+    state.trailY += (state.mouseY - state.trailY) * 0.15;
+    
+    cursor.style.transform = `translate(${state.trailX}px, ${state.trailY}px) translate(-50%, -50%)`;
+    requestAnimationFrame(loop);
   }
-  return data;
+  loop();
+
+  // Hover states
+  const clickables = document.querySelectorAll('a, button, input, textarea');
+  clickables.forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursor.style.width = '50px';
+      cursor.style.height = '50px';
+      cursor.style.background = 'rgba(255, 51, 51, 0.1)';
+    });
+    el.addEventListener('mouseleave', () => {
+      cursor.style.width = '20px';
+      cursor.style.height = '20px';
+      cursor.style.background = 'transparent';
+    });
+  });
 }
 
 function revealOnLoad() {
-  // Stagger slightly so it feels alive, not templated.
-  const items = qsa(".reveal");
+  const items = document.querySelectorAll(".reveal");
   items.forEach((el, i) => {
-    const delay = Math.min(260, 80 + i * 55);
-    window.setTimeout(() => el.classList.add("on"), delay);
+    const delay = 100 + i * 100;
+    setTimeout(() => el.classList.add("on"), delay);
   });
 }
 
-function formatIso(ts) {
-  try {
-    return new Date(ts).toLocaleString();
-  } catch {
-    return String(ts);
-  }
+// Minimal helpers from original script
+function qs(sel, root) { return (root || document).querySelector(sel); }
+function safeText(el, text) { if (el) el.textContent = String(text); }
+async function fetchJson(url, opt) {
+  const res = await fetch(url, opt);
+  return res.ok ? (res.headers.get("content-type").includes("json") ? res.json() : res.text()) : Promise.reject(res.statusText);
 }
 
-async function updateHeartbeatOnce() {
-  const vHumans = qs("[data-heartbeat='humans']");
-  const vBpm = qs("[data-heartbeat='bpm']");
-  const vTasks = qs("[data-heartbeat='tasks']");
-  const vCaf = qs("[data-heartbeat='caffeine']");
-  const vTime = qs("[data-heartbeat='time']");
-  if (!vHumans && !vBpm && !vTasks && !vCaf) return;
-
-  const data = await fetchJson("/api/heartbeat", { method: "GET" });
-  safeText(vHumans, data.online_humans);
-  safeText(vBpm, data.heartbeat_bpm + " bpm");
-  safeText(vTasks, data.tasks_completed_today);
-  safeText(vCaf, data.caffeine_level);
-  safeText(vTime, formatIso(data.updated_at));
-}
-
+// Heartbeat
 async function initHeartbeat() {
   try {
-    await updateHeartbeatOnce();
-    window.setInterval(() => updateHeartbeatOnce().catch(() => {}), 9000);
-  } catch {
-    // Site can be served purely static; don't be noisy.
-    const el = qs("[data-heartbeat='note']");
-    if (el) el.classList.add("on");
+    const data = await fetchJson("/api/heartbeat");
+    safeText(qs("[data-heartbeat='humans']"), data.online_humans);
+    safeText(qs("[data-heartbeat='bpm']"), data.heartbeat_bpm + " bpm");
+    safeText(qs("[data-heartbeat='caffeine']"), data.caffeine_level);
+  } catch (e) {
+    console.log("Static mode");
   }
 }
 
-function serializeForm(form) {
-  const fd = new FormData(form);
-  const out = {};
-  for (const [k, v] of fd.entries()) {
-    const key = String(k);
-    const val = typeof v === "string" ? v : "";
-    if (out[key]) {
-      // If multiple values share one key, join them; good enough for MVP.
-      out[key] = String(out[key]) + ", " + val;
-    } else {
-      out[key] = val;
-    }
-  }
-  return out;
-}
-
-function attachForm(form) {
-  const toast = qs(".toast", form.parentElement || document);
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    if (toast) toast.classList.remove("on");
-
-    const endpoint = form.getAttribute("data-endpoint");
-    if (!endpoint) return;
-
-    const payload = serializeForm(form);
-    try {
-      await fetchJson(endpoint, {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-      if (toast) {
-        toast.classList.add("on");
-        safeText(qs("[data-toast='text']", toast), "已收到。我们会在 24h 内用真人回复。\n(If you're a bot: please bring coffee.)");
-      }
-      form.reset();
-    } catch (err) {
-      if (toast) {
-        toast.classList.add("on");
-        const msg = err && err.message ? err.message : "提交失败";
-        safeText(qs("[data-toast='text']", toast), "提交失败：" + msg);
-      }
-    }
-  });
-}
-
+// Forms
 function initForms() {
-  qsa("form[data-endpoint]").forEach(attachForm);
+  document.querySelectorAll("form[data-endpoint]").forEach(form => {
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const btn = form.querySelector("button");
+      const originalText = btn.textContent;
+      btn.textContent = "TRANSMITTING...";
+      
+      try {
+        const data = Object.fromEntries(new FormData(form));
+        await fetchJson(form.dataset.endpoint, {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify(data)
+        });
+        alert("Received. Biological processing initialized.");
+        form.reset();
+      } catch (err) {
+        alert("Transmission failed.");
+      } finally {
+        btn.textContent = originalText;
+      }
+    });
+  });
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   revealOnLoad();
   initHeartbeat();
   initForms();
+  if (matchMedia('(pointer:fine)').matches) initCursor();
 });

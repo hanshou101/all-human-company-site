@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>发布需求 | 全人公司</title>
-    <meta name="description" content="发布你的真人任务：我们用更多人解决问题。" />
+    <meta name="description" content="雇佣人类去做模型做不到的事。" />
     <link rel="stylesheet" href="/assets/style.css" />
   </head>
   <body>
@@ -12,76 +12,77 @@
       <div class="topbar">
         <div class="brand">
           <b>发布需求</b>
-          <span class="sig">REQUEST · anti-automation</span>
+          <span class="sig">ANTI-AUTOMATION SERVICE</span>
         </div>
         <nav class="nav" aria-label="Primary">
           <a href="/">首页</a>
           <a href="/manifesto">宣言</a>
           <a href="/join">加入</a>
-          <a href="/api">API/Agent</a>
+          <a href="/api">API</a>
         </nav>
       </div>
 
       <section class="hero reveal">
-        <div class="kicker">HIRE HUMANS</div>
-        <h1>雇一群真人。<br />解决你那件“模型做不到”的事。</h1>
+        <div class="kicker">雇佣生物</div>
+        <h1>部署一个人类。<br />解决不可能。</h1>
         <p class="subtitle">
-          你描述目标，我们拆分动作；你给预算，我们给交付；你想要确定性，我们给你“现实”。
+          你定义目标，我们将其分解为人类动作。<br>
+          你想要确定性？用代码。你想要<strong>真实</strong>？雇佣我们。
         </p>
       </section>
 
       <section class="grid">
         <article class="card wide reveal">
-          <h2>需求表单（MVP）</h2>
-          <p class="hint">提交后会落盘到本机 `data/`。上线后可替换为表单平台。</p>
+          <h2>任务简报 (Mission Brief)</h2>
+          <p class="hint">数据本地存储。响应时间取决于咖啡因摄入量。</p>
           <div class="toast" role="status" aria-live="polite"><span data-toast="text"></span></div>
           <form class="form" data-endpoint="/api/request">
             <label>
-              你要解决什么（目标，必填）
-              <textarea name="goal" placeholder="例如：验证某连锁店真实价格与服务态度" required></textarea>
+              目标 (The "What")
+              <textarea name="goal" placeholder="例如：验证某家排队网红店是否真的好喝。" required></textarea>
             </label>
             <label>
-              需要真人做什么（动作）
-              <textarea name="action" placeholder="例如：到店问价、录音、拍照、收集票据" required></textarea>
+              动作 (The "How")
+              <textarea name="action" placeholder="例如：去现场、拍张照、随机采访路人。" required></textarea>
             </label>
             <label>
-              地点/时间限制（有就填）
-              <input name="location_time" placeholder="Shanghai · this weekend" />
+              约束 (地点/时间)
+              <input name="location_time" placeholder="Shanghai · This Weekend" />
             </label>
             <label>
-              预算范围
+              预算分配 (Budget)
               <input name="budget" placeholder="$100 - $800" />
             </label>
             <label>
-              联系方式（必填）
-              <input name="contact" placeholder="微信/邮箱" required />
+              通讯频段 (联系方式)
+              <input name="contact" placeholder="Email / Signal / WeChat" required />
             </label>
             <div class="cta">
-              <button class="btn hot" type="submit">提交（24h 内回复）</button>
-              <a class="btn" href="/api">我想用 API 调用人类</a>
+              <button class="btn hot" type="submit">部署人类</button>
+              <a class="btn" href="/api">API 文档</a>
             </div>
           </form>
         </article>
 
         <article class="card reveal">
-          <h2>交付方式</h2>
+          <h2>交付物</h2>
           <ul class="list">
-            <li><b>真人沟通</b>：把不确定写在明处，避免“模型幻觉”。</li>
-            <li><b>真人执行</b>：视频/票据/现场照片作为证据。</li>
-            <li><b>真人复盘</b>：告诉你哪里是信息噪音，哪里是真相。</li>
+            <li><b>人类沟通</b>：我们澄清歧义，而不是产生幻觉。</li>
+            <li><b>物理证据</b>：视频、票据、带 GPS 的照片。</li>
+            <li><b>解读</b>：我们会告诉你什么是噪音，什么是真相。</li>
           </ul>
         </article>
 
         <article class="card reveal">
-          <h2>危险提示</h2>
+          <h2>免责声明</h2>
           <p>
-            如果你的需求本质是“让人替模型背锅”，我们会收更贵的钱。
+            如果你雇佣我们是为了替 AI 的错误背锅，我们将收取双倍费用。
           </p>
         </article>
       </section>
 
       <footer class="reveal">
-        <div class="mono">Premium carbon-based intelligence for your silicon workforce.</div>
+        <div class="mono">为你的硅基劳动力提供优质的碳基智能。</div>
       </footer>
     </div>
 
